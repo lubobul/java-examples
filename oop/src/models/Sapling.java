@@ -8,16 +8,15 @@ public abstract class Sapling implements Comparable<Sapling> {
 
     }
 
-    public Sapling(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+        if(name == null || name.isEmpty()){
+            throw new IllegalArgumentException("Name cannot be empty.");
+        }
+
         this.name = name;
     }
 
@@ -26,6 +25,10 @@ public abstract class Sapling implements Comparable<Sapling> {
     }
 
     public void setPrice(double price) {
+        if(price <= 0){
+            throw new IllegalArgumentException("Price must be greater than 0");
+        }
+
         this.price = price;
     }
 

@@ -5,13 +5,13 @@ public class DecorativeSapling extends Sapling {
     private double maxHeight;
 
     public DecorativeSapling(){
-        super();
     }
 
-    public DecorativeSapling(String name, double price, double spacing, double maxHeight) {
-        super(name, price);
-        this.spacing = spacing;
-        this.maxHeight = maxHeight;
+    public DecorativeSapling(DecorativeSapling newSapling) {
+        this.setName(newSapling.getName());
+        this.setPrice(newSapling.getPrice());
+        this.setSpacing(newSapling.getSpacing());
+        this.setMaxHeight(newSapling.getMaxHeight());
     }
 
     public double getSpacing() {
@@ -19,6 +19,10 @@ public class DecorativeSapling extends Sapling {
     }
 
     public void setSpacing(double spacing) {
+        if(spacing <= 0){
+            throw new IllegalArgumentException("Spacing must be greater than 0.");
+        }
+
         this.spacing = spacing;
     }
 
@@ -27,6 +31,10 @@ public class DecorativeSapling extends Sapling {
     }
 
     public void setMaxHeight(double maxHeight) {
+        if(maxHeight <= 0){
+            throw new IllegalArgumentException("Max Height must be greater than 0.");
+        }
+
         this.maxHeight = maxHeight;
     }
 

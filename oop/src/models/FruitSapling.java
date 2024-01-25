@@ -6,14 +6,14 @@ public class FruitSapling extends Sapling {
     private String details;
 
     public FruitSapling(){
-        super();
     }
 
-    public FruitSapling(String name, double price, int yearlyFruitCount, double yearlyFruitWeight, String details) {
-        super(name, price);
-        this.yearlyFruitCount = yearlyFruitCount;
-        this.yearlyFruitWeight = yearlyFruitWeight;
-        this.details = details;
+    public FruitSapling(FruitSapling newSapling) {
+        this.setName(newSapling.getName());
+        this.setPrice(newSapling.getPrice());
+        this.setYearlyFruitCount(newSapling.getYearlyFruitCount());
+        this.setYearlyFruitWeight(newSapling.getYearlyFruitWeight());
+        this.setDetails(newSapling.getDetails());
     }
 
     public String getDetails() {
@@ -21,6 +21,10 @@ public class FruitSapling extends Sapling {
     }
 
     public void setDetails(String details) {
+        if(details == null){
+            throw new IllegalArgumentException("Details cannot be set to null.");
+        }
+
         this.details = details;
     }
 
@@ -29,6 +33,10 @@ public class FruitSapling extends Sapling {
     }
 
     public void setYearlyFruitCount(int yearlyFruitCount) {
+        if(yearlyFruitCount <= 0){
+            throw new IllegalArgumentException("Yearly Fruit Count must be greater than 0.");
+        }
+
         this.yearlyFruitCount = yearlyFruitCount;
     }
 
@@ -37,6 +45,10 @@ public class FruitSapling extends Sapling {
     }
 
     public void setYearlyFruitWeight(double yearlyFruitWeight) {
+        if(yearlyFruitWeight <= 0){
+            throw new IllegalArgumentException("Yearly Fruit Weight must be greater than 0.");
+        }
+
         this.yearlyFruitWeight = yearlyFruitWeight;
     }
 
