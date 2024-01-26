@@ -65,7 +65,7 @@ public class Main {
         List<List<Integer>> diagonals =
                 getCounterDiagonals(matrix)
                 .stream()
-                .filter(diag -> Math.abs(diag.stream().mapToInt(i -> i).sum() % 2) == 1)
+                .filter(diag -> diag.stream().mapToInt(i -> i).sum() % 2 != 0)
                 .toList();
 
         printDiagonals(diagonals);
