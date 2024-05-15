@@ -8,6 +8,8 @@ import java.time.Year;
 import java.util.List;
 import java.util.Scanner;
 
+import static models.Constants.ROBERT_DI_NIRO;
+
 public class View {
     /**
      * Prints generic movie info from a list of libraries
@@ -21,7 +23,7 @@ public class View {
         }
 
         System.out.println("Robert De Niro movies: ");
-        for (Movie movie : libraryController.getMoviesWithRobertDiNiroSortedFromLibrary(libraryName)) {
+        for (Movie movie : libraryController.getMoviesByActorSortedFromLibrary(libraryName, ROBERT_DI_NIRO)) {
             System.out.println(movie);
         }
     }

@@ -43,7 +43,7 @@ public class MovieLibraryController {
      * @param libraryName - library name
      * @return List<Movie>
      */
-    public List<Movie> getMoviesWithRobertDiNiroSortedFromLibrary(String libraryName) {
+    public List<Movie> getMoviesByActorSortedFromLibrary(String libraryName, String actorName) {
         return movieLibraries
                 .stream()
                 .filter(movieLibrary -> movieLibrary.getLibraryName().toLowerCase().contains(libraryName.toLowerCase()))
@@ -51,7 +51,7 @@ public class MovieLibraryController {
                 .get()
                 .getMovies()
                 .stream()
-                .filter(film -> film.getActors().toLowerCase().contains(ROBERT_DI_NIRO.toLowerCase()))
+                .filter(film -> film.getActors().toLowerCase().contains(actorName.toLowerCase()))
                 .sorted(Comparator.comparing(Movie::getYear)
                         .reversed()
                         .thenComparing(Movie::getLicenseFee))
