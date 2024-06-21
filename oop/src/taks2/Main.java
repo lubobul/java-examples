@@ -49,6 +49,7 @@ public class Main {
                         FruitSapling sapling = new FruitSapling();
                         System.out.println("Creating a fruit tree sapling");
                         System.out.println("-----------------------------");
+
                         System.out.print("Name: ");
                         sapling.setName(scanner.nextLine());
                         System.out.print("Price: ");
